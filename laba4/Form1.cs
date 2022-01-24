@@ -40,18 +40,22 @@ namespace laba4
             if (e.KeyCode == Keys.C)
             {
                 currentshape = 1;
+                label_shape.Text = "Текущая фигура - \nкруг";
             }
             if (e.KeyCode == Keys.S)
             {
                 currentshape = 2;
+                label_shape.Text = "Текущая фигура - \nквадрат";
             }
             if (e.KeyCode == Keys.T)
             {
                 currentshape = 3;
+                label_shape.Text = "Текущая фигура - \nтреугольник";
             }
             if (e.KeyCode == Keys.G)
             {
                 currentcolor = Color.Green;
+                label_color.Text = "Текущий цвет - \nзелёный";
                 for (int i = 0; i < container.getSize(); i++)
                 {
                     if (container[i].getSelection() == true)
@@ -65,6 +69,7 @@ namespace laba4
             if (e.KeyCode == Keys.B)
             {
                 currentcolor = Color.Blue;
+                label_color.Text = "Текущий цвет - \nсиний";
                 for (int i = 0; i < container.getSize(); i++)
                 {
                     if (container[i].getSelection() == true)
@@ -78,6 +83,7 @@ namespace laba4
             if (e.KeyCode == Keys.Y)
             {
                 currentcolor = Color.Yellow;
+                label_color.Text = "Текущий цвет - \nжёлтый";
                 for (int i = 0; i < container.getSize(); i++)
                 {
                     if (container[i].getSelection() == true)
@@ -90,11 +96,14 @@ namespace laba4
 
             if (e.KeyCode == Keys.Delete) 
             {
-                for (int i = 0; i < container.getSize(); i++)
+                for (int i = 0; i < container.getCapacity(); i++)
                 {
-                    if (container[i].getSelection() == true)
+                    if (container[i] != null) 
                     {
-                        container.deleteObject(i);
+                        if (container[i].getSelection() == true)
+                        {
+                            container.deleteObject(i);
+                        }
                     }
                 }
                 //Invalidate();
@@ -220,7 +229,7 @@ namespace laba4
                 }
                 else if (currentshape == 3)
                 {
-                    Base item = new ctriangle(p, 48, currentcolor);
+                    Base item = new ctriangle(p, 43, currentcolor);
                     container.addToEnd(ref item);
                 }
 
@@ -237,20 +246,28 @@ namespace laba4
             {
                 if (container[i].getSelection() == false)
                 {
-                    // make brush of current color somehow
                     SolidBrush bruh = new SolidBrush(container[i].getColor());
                     container[i].draw(g, bruh);
                 }
                 else
                 {
                     SolidBrush bruh = new SolidBrush(container[i].getColor());
-                    container[i].draw(g, bruh);
+                    //container[i].draw(g, bruh);
                     container[i].drawSelection(g);
-                    // make brush of current color somehow
                     
                     container[i].draw(g, bruh);
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_shape_Click(object sender, EventArgs e)
+        {
+
         }
     }   
 }
