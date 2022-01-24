@@ -28,19 +28,19 @@ namespace laba4
         {
             g.FillEllipse(b, this.point.X - size / 2, this.point.Y - size / 2, size, size);
         }
-        public int getRadius()
+        public override void drawSelection(Graphics g)
         {
-            return size;
+            g.FillEllipse(Brushes.Red, this.point.X - (size + 10) / 2, this.point.Y - (size + 10) / 2, size + 10, size + 10);
         }
+
+        //public int getRadius()
+        //{
+        //    return size;
+        //}
 
         //public Point getPoint()
         //{
         //    return point;
-        //}
-
-        //public void drawSelection(Graphics g)
-        //{
-        //    g.FillEllipse(Brushes.Red, this.point.X - (radius + 10) / 2, this.point.Y - (radius + 10) / 2, radius + 10, radius + 10);
         //}
 
         //public void setSelection(bool sel)

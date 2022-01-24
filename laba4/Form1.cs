@@ -15,12 +15,14 @@ namespace laba4
     {
         private Container<Base> container;
         public Color currentcolor;
+        public int currentshape; // 1 - circle, 2 - square
 
         public Form1()
         {
             InitializeComponent();
             container = new Container<Base>();
             currentcolor = Color.Blue;
+            currentshape = 1;
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
@@ -35,6 +37,18 @@ namespace laba4
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.C)
+            {
+                currentshape = 1;
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                currentshape = 2;
+            }
+            if (e.KeyCode == Keys.T)
+            {
+                currentshape = 3;
+            }
             if (e.KeyCode == Keys.G)
             {
                 currentcolor = Color.Green;
@@ -161,7 +175,6 @@ namespace laba4
         {
 
             Point p = e.Location;
-            //Console.WriteLine("picbox press - " + p);
             int index = -1;
             bool on_item = false;
 
@@ -195,8 +208,22 @@ namespace laba4
                 {
                     container[ii].setSelection(false);
                 }
-                Base item = new ccircle(p, 50, currentcolor);
-                container.addToEnd(ref item);
+                if (currentshape == 1)
+                {
+                    Base item = new ccircle(p, 50, currentcolor);
+                    container.addToEnd(ref item);
+                }
+                else if (currentshape == 2)
+                {
+                    Base item = new csquare(p, 50, currentcolor);
+                    container.addToEnd(ref item);
+                }
+                else if (currentshape == 3)
+                {
+                    Base item = new ctriangle(p, 48, currentcolor);
+                    container.addToEnd(ref item);
+                }
+
 
                 //Invalidate();
                 pictureBox1.Invalidate();

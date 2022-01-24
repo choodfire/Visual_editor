@@ -14,6 +14,10 @@ namespace laba4
         protected bool isSelected;
         protected Color color;
 
+        public virtual int getSize()
+        {
+            return size;
+        }
         public virtual void setSelection(bool sel)
         {
             this.isSelected = sel;
@@ -75,10 +79,7 @@ namespace laba4
                 return false;
             }
         }
-        public virtual void drawSelection(Graphics g)
-        {
-            g.FillEllipse(Brushes.Red, this.point.X - (size + 10) / 2, this.point.Y - (size + 10) / 2, size + 10, size + 10);
-        }
+        public virtual void drawSelection(Graphics g) { }
 
         public virtual void draw(Graphics g, Brush b) { }
     }

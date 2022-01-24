@@ -53,6 +53,7 @@
     <Compile Include="ccircle.cs" />
     <Compile Include="container.cs" />
     <Compile Include="csquare.cs" />
+    <Compile Include="ctriangle.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
