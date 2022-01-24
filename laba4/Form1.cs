@@ -48,25 +48,65 @@ namespace laba4
 
             if (e.KeyCode == Keys.Add)
             {
-                for (int i = 0; i < container.getCapacity(); i++)
+                for (int i = 0; i < container.getSize(); i++)
                 {
-                    if (container[i] != null) 
+                    if (container[i].getSelection() == true)
                     {
-                        if (container[i].getSelection() == true)
-                        {
-                            Console.WriteLine("aa");
-                            // тут код для увеличения
-                            int r = container[i].getRadius();
-                            Point p = container[i].getPoint();
+                        container[i].resize(true);
+                        pictureBox1.Invalidate();
+                    }
+                }
+            }
 
-                            container.deleteObject(i);
+            if (e.KeyCode == Keys.Subtract)
+            {
+                for (int i = 0; i < container.getSize(); i++)
+                {
+                    if (container[i].getSelection() == true)
+                    {
+                        container[i].resize(false);
+                        pictureBox1.Invalidate();
+                    }
+                }
+            }
 
-                            ccircle item = new ccircle(p, (int)(r * 1.1));
+            if (e.KeyCode == Keys.Up)
+            {
+                for (int i = 0; i < container.getSize(); i++)
+                {
+                    if (container[i].getSelection() == true)
+                    {
 
-                            container.addToEnd(ref item);
-                            //Invalidate();
-                            pictureBox1.Invalidate();
-                        }
+                    }
+                }
+            }
+            if (e.KeyCode == Keys.Down)
+            {
+                for (int i = 0; i < container.getSize(); i++)
+                {
+                    if (container[i].getSelection() == true)
+                    {
+
+                    }
+                }
+            }
+            if (e.KeyCode == Keys.Left)
+            {
+                for (int i = 0; i < container.getSize(); i++)
+                {
+                    if (container[i].getSelection() == true)
+                    {
+
+                    }
+                }
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                for (int i = 0; i < container.getSize(); i++)
+                {
+                    if (container[i].getSelection() == true)
+                    {
+
                     }
                 }
             }
@@ -74,8 +114,8 @@ namespace laba4
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            //Console.WriteLine("qwe");
             Point p = e.Location;
+            Console.WriteLine("picbox press - " + p);
             int index = -1;
             bool on_item = false;
 
@@ -88,7 +128,7 @@ namespace laba4
                 }
             }
 
-            if (on_item == true)
+            if (on_item == true) // на объект
             {
                 if (Control.ModifierKeys != Keys.Control)
                 {
@@ -103,7 +143,7 @@ namespace laba4
                 pictureBox1.Invalidate();
             }
 
-            if (on_item == false)
+            if (on_item == false) // просто на форму
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {

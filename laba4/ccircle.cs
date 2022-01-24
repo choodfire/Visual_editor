@@ -13,7 +13,7 @@ namespace laba4
         private int radius;
         private Point point;
         private bool isSelected;
-        private Graphics g;
+        //private Graphics g;
 
         public ccircle(Point point, int radius) 
         {
@@ -45,6 +45,21 @@ namespace laba4
         public Point getPoint()
         {
             return point;
+        }
+
+        public void resize(bool sign)
+        {
+            if (sign == true) 
+            {
+                if (point.X - radius * 0.55 > 0 && point.X + radius * 0.55 < 800 && 
+                    point.Y - radius * 0.55 > 0 && point.Y + radius * 0.55 < 600)
+                {
+                    radius = Convert.ToInt32(radius * 1.1);
+                    Console.WriteLine("point x = " + point.X + " r = " + radius);
+                }
+            }
+            else
+                radius = Convert.ToInt32(radius / 1.1);
         }
 
         public bool check_location(Point p) 
