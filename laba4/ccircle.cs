@@ -10,71 +10,94 @@ namespace laba4
 {
     class ccircle: Base
     {
-        private int radius;
-        private Point point;
-        private bool isSelected;
+        //private int radius;
+        //private Point point;
+        //private bool isSelected;
+        //private Color color;
         //private Graphics g;
 
-        public ccircle(Point point, int radius) 
+        public ccircle(Point point, int radius, Color color) 
         {
             this.point = point;
             this.isSelected = true;
-            this.radius = radius;
+            this.size = radius;
+            this.color = color;
         }
 
-        public void draw(Graphics g, Brush b) 
+        public override void draw(Graphics g, Brush b) 
         {
-            g.FillEllipse(b, this.point.X - radius/2, this.point.Y - radius / 2, radius, radius);
+            g.FillEllipse(b, this.point.X - size / 2, this.point.Y - size / 2, size, size);
         }
-
-        public void setSelection(bool sel) 
-        {
-            this.isSelected = sel;
-        }
-
-        public bool getSelection()
-        {
-            return isSelected;
-        }
-
         public int getRadius()
         {
-            return radius;
+            return size;
         }
 
-        public Point getPoint()
-        {
-            return point;
-        }
+        //public Point getPoint()
+        //{
+        //    return point;
+        //}
 
-        public void resize(bool sign)
-        {
-            if (sign == true) 
-            {
-                if (point.X - radius * 0.55 > 0 && point.X + radius * 0.55 < 800 && 
-                    point.Y - radius * 0.55 > 0 && point.Y + radius * 0.55 < 600)
-                {
-                    radius = Convert.ToInt32(radius * 1.1);
-                    Console.WriteLine("point x = " + point.X + " r = " + radius);
-                }
-            }
-            else
-                radius = Convert.ToInt32(radius / 1.1);
-        }
+        //public void drawSelection(Graphics g)
+        //{
+        //    g.FillEllipse(Brushes.Red, this.point.X - (radius + 10) / 2, this.point.Y - (radius + 10) / 2, radius + 10, radius + 10);
+        //}
 
-        public bool check_location(Point p) 
-        {
-            if (p.X < this.point.X + radius &&
-                p.X > this.point.X - radius &&
-                p.Y < this.point.Y + radius &&
-                p.Y > this.point.Y - radius)
-            {
-                return true;
-            }
-            else 
-            {
-                return false;
-            }
-        }
+        //public void setSelection(bool sel)
+        //{
+        //    this.isSelected = sel;
+        //}
+
+        //public void setColor(Color color)
+        //{
+        //    this.color = color;
+        //}
+
+        //public bool getSelection()
+        //{
+        //    return isSelected;
+        //}
+
+        //public void resize(bool sign)
+        //{
+        //    if (sign == true) 
+        //    {
+        //        if (point.X - radius * 0.55 > 0 && point.X + radius * 0.55 < 800 && 
+        //            point.Y - radius * 0.55 > 0 && point.Y + radius * 0.55 < 600)
+        //        {
+        //            radius = Convert.ToInt32(radius * 1.1);
+        //            Console.WriteLine("point x = " + point.X + " r = " + radius);
+        //        }
+        //    }
+        //    else if (radius > 40)
+        //        radius = Convert.ToInt32(radius / 1.1);
+        //}
+
+
+
+        //public void move(int xOffset, int yOffset)
+        //{
+        //    if (point.X + xOffset + radius / 2 < 800 && point.X + xOffset - radius / 2 > 0 &&
+        //        point.Y + yOffset + radius / 2 < 600 && point.Y + yOffset - radius / 2 > 0)
+        //    {
+        //        point.X += xOffset;
+        //        point.Y += yOffset;
+        //    }
+        //}
+
+        //public bool check_location(Point p) 
+        //{
+        //    if (p.X < this.point.X + radius &&
+        //        p.X > this.point.X - radius &&
+        //        p.Y < this.point.Y + radius &&
+        //        p.Y > this.point.Y - radius)
+        //    {
+        //        return true;
+        //    }
+        //    else 
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

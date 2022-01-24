@@ -13,12 +13,14 @@ namespace laba4
 {
     public partial class Form1 : Form
     {
-        private Container<ccircle> container;
+        private Container<Base> container;
+        public Color currentcolor;
 
         public Form1()
         {
             InitializeComponent();
-            container = new Container<ccircle>();
+            container = new Container<Base>();
+            currentcolor = Color.Blue;
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
@@ -33,6 +35,45 @@ namespace laba4
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.G)
+            {
+                currentcolor = Color.Green;
+                for (int i = 0; i < container.getSize(); i++)
+                {
+                    if (container[i].getSelection() == true)
+                    {
+                        container[i].setColor(currentcolor);
+                        pictureBox1.Invalidate();
+                    }
+                }
+            }
+
+            if (e.KeyCode == Keys.B)
+            {
+                currentcolor = Color.Blue;
+                for (int i = 0; i < container.getSize(); i++)
+                {
+                    if (container[i].getSelection() == true)
+                    {
+                        container[i].setColor(currentcolor);
+                    }
+                }
+                pictureBox1.Invalidate();
+            }
+
+            if (e.KeyCode == Keys.Y)
+            {
+                currentcolor = Color.Yellow;
+                for (int i = 0; i < container.getSize(); i++)
+                {
+                    if (container[i].getSelection() == true)
+                    {
+                        container[i].setColor(currentcolor);
+                    }
+                }
+                pictureBox1.Invalidate();
+            }
+
             if (e.KeyCode == Keys.Delete) 
             {
                 for (int i = 0; i < container.getSize(); i++)
@@ -76,7 +117,8 @@ namespace laba4
                 {
                     if (container[i].getSelection() == true)
                     {
-
+                        container[i].move(0, -5);
+                        pictureBox1.Invalidate();
                     }
                 }
             }
@@ -86,7 +128,8 @@ namespace laba4
                 {
                     if (container[i].getSelection() == true)
                     {
-
+                        container[i].move(0, 5);
+                        pictureBox1.Invalidate();
                     }
                 }
             }
@@ -96,7 +139,8 @@ namespace laba4
                 {
                     if (container[i].getSelection() == true)
                     {
-
+                        container[i].move(-5, 0);
+                        pictureBox1.Invalidate();
                     }
                 }
             }
@@ -106,7 +150,8 @@ namespace laba4
                 {
                     if (container[i].getSelection() == true)
                     {
-
+                        container[i].move(5, 0);
+                        pictureBox1.Invalidate();
                     }
                 }
             }
@@ -114,8 +159,9 @@ namespace laba4
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+
             Point p = e.Location;
-            Console.WriteLine("picbox press - " + p);
+            //Console.WriteLine("picbox press - " + p);
             int index = -1;
             bool on_item = false;
 
@@ -139,17 +185,17 @@ namespace laba4
                 }
 
                 container[index].setSelection(true);
-                //Invalidate();
+                
                 pictureBox1.Invalidate();
             }
 
             if (on_item == false) // просто на форму
             {
-                for (int i = 0; i < container.getSize(); i++)
+                for (int ii = 0; ii < container.getSize(); ii++)
                 {
-                    container[i].setSelection(false);
+                    container[ii].setSelection(false);
                 }
-                ccircle item = new ccircle(p, 50);
+                Base item = new ccircle(p, 50, currentcolor);
                 container.addToEnd(ref item);
 
                 //Invalidate();
@@ -164,11 +210,18 @@ namespace laba4
             {
                 if (container[i].getSelection() == false)
                 {
-                    container[i].draw(g, Brushes.Blue);
+                    // make brush of current color somehow
+                    SolidBrush bruh = new SolidBrush(container[i].getColor());
+                    container[i].draw(g, bruh);
                 }
                 else
                 {
-                    container[i].draw(g, Brushes.Red);
+                    SolidBrush bruh = new SolidBrush(container[i].getColor());
+                    container[i].draw(g, bruh);
+                    container[i].drawSelection(g);
+                    // make brush of current color somehow
+                    
+                    container[i].draw(g, bruh);
                 }
             }
         }

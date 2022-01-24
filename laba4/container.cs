@@ -24,8 +24,6 @@ namespace laba4
 
         }
 
-        
-
         public T this[int index]
         {
             get
