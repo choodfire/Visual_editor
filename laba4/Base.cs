@@ -81,6 +81,6 @@ namespace laba4
         }
         public virtual void drawSelection(Graphics g) { }
 
-        public virtual void draw(Graphics g, Brush b) { }
+        public virtual void draw(Graphics g) { }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+//using Newtonsoft.Json;
 
 namespace laba4
 {
@@ -24,9 +25,10 @@ namespace laba4
             this.color = color;
         }
 
-        public override void draw(Graphics g, Brush b) 
+        public override void draw(Graphics g) 
         {
-            g.FillEllipse(b, this.point.X - size / 2, this.point.Y - size / 2, size, size);
+            SolidBrush bb = new SolidBrush(this.color);
+            g.FillEllipse(bb, this.point.X - size / 2, this.point.Y - size / 2, size, size);
         }
         public override void drawSelection(Graphics g)
         {

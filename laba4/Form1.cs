@@ -52,6 +52,7 @@ namespace laba4
                         size -= 1;
                         i -= 1;
                     }
+                    pictureBox1.Invalidate();
                 }
 
                 container.addObject(group);
@@ -262,7 +263,7 @@ namespace laba4
                 if (container[i].getSelection() == false)
                 {
                     SolidBrush bruh = new SolidBrush(container[i].getColor());
-                    container[i].draw(g, bruh);
+                    container[i].draw(g);
                 }
                 else
                 {
@@ -270,7 +271,7 @@ namespace laba4
                     //container[i].draw(g, bruh);
                     container[i].drawSelection(g);
                     
-                    container[i].draw(g, bruh);
+                    container[i].draw(g);
                 }
             }
         }

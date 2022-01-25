@@ -17,9 +17,10 @@ namespace laba4
             this.color = color;
         }
 
-        public override void draw(Graphics g, Brush b)
+        public override void draw(Graphics g)
         {
-            g.FillRectangle(b, this.point.X - size / 2, this.point.Y - size / 2, size, size);
+            SolidBrush bb = new SolidBrush(this.color);
+            g.FillRectangle(bb, this.point.X - size / 2, this.point.Y - size / 2, size, size);
         }
         public override void drawSelection(Graphics g)
         {

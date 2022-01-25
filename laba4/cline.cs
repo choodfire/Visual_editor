@@ -23,13 +23,13 @@ namespace laba4
             this.point2 = new Point(point.X + 25, point.Y + 25);
         }
 
-        public override void draw(Graphics g, Brush b)
+        public override void draw(Graphics g)
         {
             //g.Fill
         }
         public override void drawSelection(Graphics g)
         {
-            g.FillEllipse(Brushes.Red, this.point.X - (size + 10) / 2, this.point.Y - (size + 10) / 2, size + 10, size + 10);
+            //g.FillEllipse(Brushes.Red, this.point.X - (size + 10) / 2, this.point.Y - (size + 10) / 2, size + 10, size + 10);
         }
     }
 }

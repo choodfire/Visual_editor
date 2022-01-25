@@ -38,9 +38,10 @@ namespace laba4
             pointsForSelection = new Point[3] { point1s, point2s, point3s };
         }
 
-        public override void draw(Graphics g, Brush b)
+        public override void draw(Graphics g)
         {
-            g.FillPolygon(b, points);
+            SolidBrush bb = new SolidBrush(this.color);
+            g.FillPolygon(bb, points);
         }
         public override void drawSelection(Graphics g)
         {
