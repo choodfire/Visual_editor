@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace laba4
 {
-    class Container<Base>        //хранилище
+    class cgroup: Base
     {
-        private int size;
+        private int size; // общий размер
         private Base[] arr;
-        public Container()
+
+        public cgroup()
         {
             arr = null;
         }
-        public Container(int size)
+        public cgroup(int size)
         {
             this.size = size;
             arr = new Base[size];
-
         }
-
         public Base this[int index]
         {
             get
@@ -33,7 +33,8 @@ namespace laba4
                 arr[index] = value;
             }
         }
-        public void addObject(Base obj) 
+
+        public void addToGroup(Base obj)
         {
             if (size == 0)
             {
@@ -41,10 +42,10 @@ namespace laba4
                 arr[0] = obj;
                 size = 1;
             }
-            else 
+            else
             {
                 Base[] new_arr = new Base[size + 1];
-                for (int i = 0; i < size; i++) 
+                for (int i = 0; i < size; i++)
                 {
                     new_arr[i] = arr[i];
                 }
@@ -53,7 +54,7 @@ namespace laba4
                 size += 1;
             }
         }
-        public void deleteObject(int index) 
+        public void deleteFromGroup(int index)
         {
             Base[] new_arr = new Base[size - 1];
             for (int i = 0; i < index; i++)
@@ -64,10 +65,26 @@ namespace laba4
             size -= 1;
         }
 
-        public int getSize() //вернуть размер
+        public int getGroupSize() //вернуть размер
         {
             return size;
         }
-    }
 
+        public override void draw(Graphics g, Brush b) 
+        {
+            for (int i = 0; i < size; i++) 
+            {
+                arr[i].draw(g, b);
+            }
+            
+        }
+        public override void drawSelection(Graphics g)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                arr[i].drawSelection(g);
+            }
+        }
+
+    }
 }

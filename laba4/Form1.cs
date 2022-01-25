@@ -37,6 +37,25 @@ namespace laba4
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                cgroup group = new cgroup();
+                int size = container.getSize();
+
+                for (int i = 0; i < size; i++)
+                {
+                    if (container[i].getSelection() == true)
+                    {
+                        Base item = container[i];
+                        group.addToGroup(item);
+                        container.deleteObject(i);
+                        size -= 1;
+                        i -= 1;
+                    }
+                }
+                container.addObject(group);
+                pictureBox1.Invalidate();
+            }
             if (e.KeyCode == Keys.C)
             {
                 currentshape = 1;
@@ -65,7 +84,6 @@ namespace laba4
                     }
                 }
             }
-
             if (e.KeyCode == Keys.B)
             {
                 currentcolor = Color.Blue;
@@ -79,7 +97,6 @@ namespace laba4
                 }
                 pictureBox1.Invalidate();
             }
-
             if (e.KeyCode == Keys.Y)
             {
                 currentcolor = Color.Yellow;
@@ -93,17 +110,16 @@ namespace laba4
                 }
                 pictureBox1.Invalidate();
             }
-
             if (e.KeyCode == Keys.Delete) 
             {
-                for (int i = 0; i < container.getCapacity(); i++)
+                int Size = container.getSize();
+                for (int i = 0; i < container.getSize(); i++)
                 {
-                    if (container[i] != null) 
+                    if (container[i].getSelection() == true)
                     {
-                        if (container[i].getSelection() == true)
-                        {
-                            container.deleteObject(i);
-                        }
+                        container.deleteObject(i);
+                        i -= 1;
+                        Size -= 1;
                     }
                 }
                 //Invalidate();
@@ -121,7 +137,6 @@ namespace laba4
                     }
                 }
             }
-
             if (e.KeyCode == Keys.Subtract)
             {
                 for (int i = 0; i < container.getSize(); i++)
@@ -182,7 +197,6 @@ namespace laba4
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-
             Point p = e.Location;
             int index = -1;
             bool on_item = false;
@@ -220,17 +234,17 @@ namespace laba4
                 if (currentshape == 1)
                 {
                     Base item = new ccircle(p, 50, currentcolor);
-                    container.addToEnd(ref item);
+                    container.addObject(item);
                 }
                 else if (currentshape == 2)
                 {
                     Base item = new csquare(p, 50, currentcolor);
-                    container.addToEnd(ref item);
+                    container.addObject(item);
                 }
                 else if (currentshape == 3)
                 {
                     Base item = new ctriangle(p, 43, currentcolor);
-                    container.addToEnd(ref item);
+                    container.addObject(item);
                 }
 
 
@@ -258,6 +272,7 @@ namespace laba4
                     container[i].draw(g, bruh);
                 }
             }
+            pictureBox1.Invalidate();
         }
 
         private void label1_Click(object sender, EventArgs e)
