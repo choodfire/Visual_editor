@@ -53,6 +53,7 @@ namespace laba4
                         i -= 1;
                     }
                 }
+
                 container.addObject(group);
                 pictureBox1.Invalidate();
             }
@@ -272,7 +273,6 @@ namespace laba4
                     container[i].draw(g, bruh);
                 }
             }
-            pictureBox1.Invalidate();
         }
 
         private void label1_Click(object sender, EventArgs e)
