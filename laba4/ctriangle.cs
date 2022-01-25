@@ -74,6 +74,15 @@ namespace laba4
                 pointsForSelection = new Point[3] { point1s, point2s, point3s };
             }
         }
+        public override bool canItMove(int xOffset, int yOffset)
+        {
+            if (point.X + xOffset + size < 800 && point.X + xOffset - size > 0 &&
+                point.Y + yOffset + size < 600 && point.Y + yOffset - size > 0)
+            {
+                return true;
+            }
+            return false;
+        }
         public override void resize(bool sign) // тут надо и points i pointsforsel
         {
             if (sign == true)
@@ -118,6 +127,22 @@ namespace laba4
                 points = new Point[3] { point1, point2, point3 };
                 pointsForSelection = new Point[3] { point1s, point2s, point3s };
             }
+        }
+        public virtual bool CanItResize(bool sign)
+        {
+            if (sign == true)
+            {
+                if (point.X - size - 10 > 0 && point.X + size + 10 < 800 &&
+                    point.Y - size - 10 > 0 && point.Y + size + 10 < 600)
+                {
+                    return true;
+                }
+            }
+            else if (size > 40)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -88,5 +88,63 @@ namespace laba4
             }
         }
 
+        public override void move(int xOffset, int yOffset)
+        {
+            bool can = true;
+            for (int i = 0; i < size; i++)
+            {
+                can = can && arr[i].canItMove(xOffset, yOffset);
+            }
+            if (can == true) 
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    arr[i].move(xOffset, yOffset);
+                }
+            }
+
+        }
+        public override bool canItMove(int xOffset, int yOffset)
+        {
+            bool can = true;
+            for (int i = 0; i < size; i++)
+            {
+                can = can && arr[i].canItMove(xOffset, yOffset);
+            }
+            return can;
+        }
+        public override void resize(bool sign)
+        {
+            bool can = true;
+            for (int i = 0; i < size; i++)
+            {
+                can = can && arr[i].CanItResize(sign);
+            }
+            if (can == true)
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    arr[i].resize(sign);
+                }
+            }
+        }
+        public override bool CanItResize(bool sign)
+        {
+            bool can = true;
+            for (int i = 0; i < size; i++)
+            {
+                can = can && arr[i].CanItResize(sign);
+            }
+            return can;
+        }
+        public override bool check_location(Point p) 
+        {
+            bool ok = false;
+            for (int i = 0; i < size; i++)
+            {
+                ok = ok || arr[i].check_location(p);
+            }
+            return ok;
+        }
     }
 }
