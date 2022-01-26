@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="laba4.Base">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACQAICAAATAAIIAAAAkAAAAAACAAQAAhAAIQCE=</HashCode>
+      <FileName>Base.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="laba4.Container&lt;Base&gt;">
+    <Position X="2.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAIAAAAAACIAEAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>container.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="laba4.ccircle">
+    <Position X="2.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAICAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>ccircle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="laba4.cgroup">
+    <Position X="4.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAICAAATACIIAEAAggAAAAAAAAQCABAAAAAE=</HashCode>
+      <FileName>cgroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="laba4.csquare">
+    <Position X="7" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAICAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>csquare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="laba4.ctriangle">
+    <Position X="9.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAICEAATAAAIAAEAgAAAAAAAAAQAAAAAAAAE=</HashCode>
+      <FileName>ctriangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="laba4.factory">
+    <Position X="11.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>factory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

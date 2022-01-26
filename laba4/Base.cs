@@ -42,10 +42,10 @@ namespace laba4
             return color;
         }
 
-        public virtual void move(int xOffset, int yOffset)
+        public virtual void move(int xOffset, int yOffset, int canvas_width, int canvas_height)
         {
-            if (point.X + xOffset + size / 2 < 800 && point.X + xOffset - size / 2 > 0 &&
-                point.Y + yOffset + size / 2 < 600 && point.Y + yOffset - size / 2 > 0)
+            if (point.X + xOffset + size / 2 < canvas_width && point.X + xOffset - size / 2 > 0 &&
+                point.Y + yOffset + size / 2 < canvas_height && point.Y + yOffset - size / 2 > 0)
             {
                 point.X += xOffset;
                 point.Y += yOffset;

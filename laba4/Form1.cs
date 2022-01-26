@@ -17,6 +17,9 @@ namespace laba4
         private Container<Base> container;
         public Color currentcolor;
         public int currentshape; // 1 - circle, 2 - square
+        int canvas_width = 800;
+        int canvas_height = 600;
+
 
         public Form1()
         {
@@ -38,6 +41,28 @@ namespace laba4
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.U) 
+            {
+                int group_index = 0;
+                int curr_size = container.getSize();
+                for (int i = 0; i < curr_size; i++)
+                {
+                    if (container[i].getSelection() == true)
+                    {
+                        if (container[i] is cgroup) 
+                        {
+                            group_index = i;
+                            var gr = container[i] as cgroup;
+                            for (int ii = 0; ii < gr.getGroupSize(); ii++) 
+                            {
+                                var elem = gr[ii];
+                                container.addObject(elem);
+                            }
+                        }
+                    }
+                }
+                container.deleteObject(group_index);
+            }
             if (e.KeyCode == Keys.P) 
             {
                 string path = @"C:\Users\zzzly\Desktop\oop.txt";
@@ -189,7 +214,7 @@ namespace laba4
                 {
                     if (container[i].getSelection() == true)
                     {
-                        container[i].move(0, -5);
+                        container[i].move(0, -5, canvas_width, canvas_height);
                         pictureBox1.Invalidate();
                     }
                 }
@@ -200,7 +225,7 @@ namespace laba4
                 {
                     if (container[i].getSelection() == true)
                     {
-                        container[i].move(0, 5);
+                        container[i].move(0, 5, canvas_width, canvas_height);
                         pictureBox1.Invalidate();
                     }
                 }
@@ -211,7 +236,7 @@ namespace laba4
                 {
                     if (container[i].getSelection() == true)
                     {
-                        container[i].move(-5, 0);
+                        container[i].move(-5, 0, canvas_width, canvas_height);
                         pictureBox1.Invalidate();
                     }
                 }
@@ -222,7 +247,7 @@ namespace laba4
                 {
                     if (container[i].getSelection() == true)
                     {
-                        container[i].move(5, 0);
+                        container[i].move(5, 0, canvas_width, canvas_height);
                         pictureBox1.Invalidate();
                     }
                 }

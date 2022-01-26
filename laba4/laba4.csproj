@@ -55,7 +55,6 @@
     <Compile Include="Base.cs" />
     <Compile Include="ccircle.cs" />
     <Compile Include="cgroup.cs" />
-    <Compile Include="cline.cs" />
     <Compile Include="container.cs" />
     <Compile Include="csquare.cs" />
     <Compile Include="ctriangle.cs" />
@@ -80,6 +79,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

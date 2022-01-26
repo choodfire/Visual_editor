@@ -51,10 +51,10 @@ namespace laba4
             g.FillPolygon(Brushes.Red, pointsForSelection);
         }
 
-        public override void move(int xOffset, int yOffset)
+        public override void move(int xOffset, int yOffset, int canvas_width, int canvas_height)
         {
-            if (point.X + xOffset + size < 800 && point.X + xOffset - size > 0 &&
-                point.Y + yOffset + size < 600 && point.Y + yOffset - size > 0)
+            if (point.X + xOffset + size < canvas_width && point.X + xOffset - size > 0 &&
+                point.Y + yOffset + size < canvas_height && point.Y + yOffset - size > 0)
             {
                 point.X += xOffset;
                 point.Y += yOffset;

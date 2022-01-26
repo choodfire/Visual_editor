@@ -89,7 +89,7 @@ namespace laba4
             }
         }
 
-        public override void move(int xOffset, int yOffset)
+        public override void move(int xOffset, int yOffset, int canvas_width, int canvas_height)
         {
             bool can = true;
             for (int i = 0; i < size; i++)
@@ -100,7 +100,7 @@ namespace laba4
             {
                 for (int i = 0; i < size; i++)
                 {
-                    arr[i].move(xOffset, yOffset);
+                    arr[i].move(xOffset, yOffset, canvas_width, canvas_height);
                 }
             }
 
