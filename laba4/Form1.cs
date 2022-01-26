@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace laba4
 {
@@ -37,6 +38,15 @@ namespace laba4
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.X)
+            {
+                File.WriteAllText(@"C:\Users\zzzly\Desktop\oop.txt", container.getSize().ToString() + "\n");
+                
+                for (int i = 0; i < container.getSize(); i++) 
+                {
+                    container[i].save();
+                }
+            }
             if (e.KeyCode == Keys.Enter) 
             {
                 cgroup group = new cgroup();
@@ -285,5 +295,7 @@ namespace laba4
         {
 
         }
+
+
     }   
 }

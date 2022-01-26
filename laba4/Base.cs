@@ -105,5 +105,12 @@ namespace laba4
         public virtual void drawSelection(Graphics g) { }
 
         public virtual void draw(Graphics g) { }
+
+        public virtual void save() { }
+        public virtual void load() { }
+        public virtual string getClassname() 
+        {
+            return "Base";
+        }
     }
 }

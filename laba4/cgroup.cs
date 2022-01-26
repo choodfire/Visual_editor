@@ -146,5 +146,20 @@ namespace laba4
             }
             return ok;
         }
+        public override string getClassname()
+        {
+            return "Group";
+        }
+        public override void save()
+        {
+            string path = @"C:\Users\zzzly\Desktop\oop.txt";
+            string text = getClassname() + "\n" + size.ToString();
+            Console.WriteLine(path);
+            Console.WriteLine(text);
+            for (int i = 0; i < size; i++)
+            {
+                arr[i].save();
+            }
+        }
     }
 }

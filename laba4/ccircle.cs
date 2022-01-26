@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO; 
 //using Newtonsoft.Json;
 
 namespace laba4
@@ -34,6 +35,33 @@ namespace laba4
         {
             g.FillEllipse(Brushes.Red, this.point.X - (size + 10) / 2, this.point.Y - (size + 10) / 2, size + 10, size + 10);
         }
+        public override string getClassname() 
+        {
+            return "Circle";
+        }
+        public override void save() 
+        {
+            string path = @"C:\Users\zzzly\Desktop\oop.txt";
+            string text = getClassname() + "\n" + point.X.ToString() + "\n" + point.Y.ToString() + "\n" + color.ToString() + "\n";
+
+            
+            if (!File.Exists(path))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(text);
+                }
+            }
+            else 
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(text);
+                }
+            }
+        }
+        public virtual void load() { }
 
         //public int getRadius()
         //{

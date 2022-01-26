@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -143,6 +144,31 @@ namespace laba4
                 return true;
             }
             return false;
+        }
+        public override string getClassname()
+        {
+            return "Triangle";
+        }
+        public override void save()
+        {
+            string path = @"C:\Users\zzzly\Desktop\oop.txt";
+            string text = getClassname() + "\n" + point.X.ToString() + "\n" + point.Y.ToString() + "\n" + color.ToString() + "\n";
+
+            if (!File.Exists(path))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(text);
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(text);
+                }
+            }
         }
     }
 }

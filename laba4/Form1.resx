@@ -117,4 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>G - green
+B - blue
+Y - yellow
+Delete - delete
++ - resize+
+- - resize-
+Up - move up
+Down - move down
+Left - move left
+Right - move right
+C - circle
+S - square
+T - triangle
+Enter - add to group</value>
+  </data>
 </root>

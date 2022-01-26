@@ -29,6 +29,7 @@ namespace laba4
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label_shape = new System.Windows.Forms.Label();
@@ -53,18 +54,16 @@ namespace laba4
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(824, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 286);
+            this.label1.Size = new System.Drawing.Size(170, 308);
             this.label1.TabIndex = 1;
-            this.label1.Text = "G - green\r\nB - blue\r\nY - yellow\r\nDelete - delete\r\n+ - resize+\r\n- - resize-\r\nUp - " +
-    "move up\r\nDown - move down\r\nLeft - move left\r\nRight - move right\r\nC - circle\r\nS -" +
-    " square\r\nT - triangle\r\n";
+            this.label1.Text = resources.GetString("label1.Text");
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label_shape
             // 
             this.label_shape.AutoSize = true;
             this.label_shape.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_shape.Location = new System.Drawing.Point(825, 323);
+            this.label_shape.Location = new System.Drawing.Point(825, 337);
             this.label_shape.Name = "label_shape";
             this.label_shape.Size = new System.Drawing.Size(130, 36);
             this.label_shape.TabIndex = 2;
@@ -75,7 +74,7 @@ namespace laba4
             // 
             this.label_color.AutoSize = true;
             this.label_color.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_color.Location = new System.Drawing.Point(825, 373);
+            this.label_color.Location = new System.Drawing.Point(825, 387);
             this.label_color.Name = "label_color";
             this.label_color.Size = new System.Drawing.Size(115, 36);
             this.label_color.TabIndex = 3;
