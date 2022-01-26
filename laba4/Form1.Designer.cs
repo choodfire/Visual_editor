@@ -52,9 +52,9 @@ namespace laba4
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(824, 12);
+            this.label1.Location = new System.Drawing.Point(818, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 308);
+            this.label1.Size = new System.Drawing.Size(170, 352);
             this.label1.TabIndex = 1;
             this.label1.Text = resources.GetString("label1.Text");
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -63,7 +63,7 @@ namespace laba4
             // 
             this.label_shape.AutoSize = true;
             this.label_shape.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_shape.Location = new System.Drawing.Point(825, 337);
+            this.label_shape.Location = new System.Drawing.Point(819, 400);
             this.label_shape.Name = "label_shape";
             this.label_shape.Size = new System.Drawing.Size(130, 36);
             this.label_shape.TabIndex = 2;
@@ -74,7 +74,7 @@ namespace laba4
             // 
             this.label_color.AutoSize = true;
             this.label_color.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_color.Location = new System.Drawing.Point(825, 387);
+            this.label_color.Location = new System.Drawing.Point(819, 448);
             this.label_color.Name = "label_color";
             this.label_color.Size = new System.Drawing.Size(115, 36);
             this.label_color.TabIndex = 3;

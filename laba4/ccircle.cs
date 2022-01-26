@@ -18,13 +18,15 @@ namespace laba4
         //private Color color;
         //private Graphics g;
 
-        public ccircle(Point point, int radius, Color color) 
+        public ccircle(Point point, int radius, Color color)
         {
             this.point = point;
             this.isSelected = true;
             this.size = radius;
             this.color = color;
         }
+        public ccircle()
+        {}
 
         public override void draw(Graphics g) 
         {
@@ -42,8 +44,9 @@ namespace laba4
         public override void save() 
         {
             string path = @"C:\Users\zzzly\Desktop\oop.txt";
-            string text = getClassname() + "\n" + point.X.ToString() + "\n" + point.Y.ToString() + "\n" + color.ToString() + "\n";
-
+            string text = getClassname() + "\n" + point.X.ToString() + "\n" + point.Y.ToString() + "\n" + 
+                color.ToString() + "\n" + size;
+            
             
             if (!File.Exists(path))
             {
@@ -61,73 +64,25 @@ namespace laba4
                 }
             }
         }
-        public virtual void load() { }
+        public override void load(StreamReader s)
+        {
+            //string x = s.ReadLine();
+            //string y = s.ReadLine();
+            //string colorr = s.ReadLine();
 
-        //public int getRadius()
-        //{
-        //    return size;
-        //}
+            this.point.X = Convert.ToInt32(s.ReadLine());
+            this.point.Y = Convert.ToInt32(s.ReadLine());
+            string colorr = s.ReadLine();
+            size = Convert.ToInt32(s.ReadLine());
 
-        //public Point getPoint()
-        //{
-        //    return point;
-        //}
+            if (colorr == "Color [Blue]")
+                color = Color.Blue;
+            if (colorr == "Color [Yellow]")
+                color = Color.Yellow;
+            if (colorr == "Color [Green]")
+                color = Color.Green;
+        }
 
-        //public void setSelection(bool sel)
-        //{
-        //    this.isSelected = sel;
-        //}
-
-        //public void setColor(Color color)
-        //{
-        //    this.color = color;
-        //}
-
-        //public bool getSelection()
-        //{
-        //    return isSelected;
-        //}
-
-        //public void resize(bool sign)
-        //{
-        //    if (sign == true) 
-        //    {
-        //        if (point.X - radius * 0.55 > 0 && point.X + radius * 0.55 < 800 && 
-        //            point.Y - radius * 0.55 > 0 && point.Y + radius * 0.55 < 600)
-        //        {
-        //            radius = Convert.ToInt32(radius * 1.1);
-        //            Console.WriteLine("point x = " + point.X + " r = " + radius);
-        //        }
-        //    }
-        //    else if (radius > 40)
-        //        radius = Convert.ToInt32(radius / 1.1);
-        //}
-
-
-
-        //public void move(int xOffset, int yOffset)
-        //{
-        //    if (point.X + xOffset + radius / 2 < 800 && point.X + xOffset - radius / 2 > 0 &&
-        //        point.Y + yOffset + radius / 2 < 600 && point.Y + yOffset - radius / 2 > 0)
-        //    {
-        //        point.X += xOffset;
-        //        point.Y += yOffset;
-        //    }
-        //}
-
-        //public bool check_location(Point p) 
-        //{
-        //    if (p.X < this.point.X + radius &&
-        //        p.X > this.point.X - radius &&
-        //        p.Y < this.point.Y + radius &&
-        //        p.Y > this.point.Y - radius)
-        //    {
-        //        return true;
-        //    }
-        //    else 
-        //    {
-        //        return false;
-        //    }
-        //}
+    
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -154,11 +155,40 @@ namespace laba4
         {
             string path = @"C:\Users\zzzly\Desktop\oop.txt";
             string text = getClassname() + "\n" + size.ToString();
-            Console.WriteLine(path);
-            Console.WriteLine(text);
+
+            if (!File.Exists(path))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(text);
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(text);
+                }
+            }
             for (int i = 0; i < size; i++)
             {
                 arr[i].save();
+            }
+        }
+        public override void load(StreamReader s) 
+        {
+            int numberOfShapes = Convert.ToInt32(s.ReadLine());
+            var factory = new factory();
+
+            for (int i = 0; i < numberOfShapes; i++) 
+            {
+                Base shape;
+                shape = factory.createShape(s.ReadLine());
+
+                shape.load(s);
+
+                addToGroup(shape);
             }
         }
     }

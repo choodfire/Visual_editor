@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace laba4
 {
@@ -107,7 +108,7 @@ namespace laba4
         public virtual void draw(Graphics g) { }
 
         public virtual void save() { }
-        public virtual void load() { }
+        public virtual void load(StreamReader stream) { }
         public virtual string getClassname() 
         {
             return "Base";

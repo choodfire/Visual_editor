@@ -131,6 +131,8 @@ Right - move right
 C - circle
 S - square
 T - triangle
-Enter - add to group</value>
+Enter - add to group
+O - save
+P - load</value>
   </data>
 </root>

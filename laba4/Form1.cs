@@ -38,7 +38,29 @@ namespace laba4
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.X)
+            if (e.KeyCode == Keys.P) 
+            {
+                string path = @"C:\Users\zzzly\Desktop\oop.txt";
+
+                StreamReader s = new StreamReader(path);
+                
+                int numberOfShapes = Convert.ToInt32(s.ReadLine());
+
+                var factory = new factory();
+                
+                for (int i = 0; i < numberOfShapes; i++)
+                {
+                    Base shape;
+                    shape = factory.createShape(s.ReadLine());
+                    
+                    shape.load(s);
+
+                    container.addObject(shape);
+                }
+                pictureBox1.Invalidate();
+
+            }
+            else if (e.KeyCode == Keys.O)
             {
                 File.WriteAllText(@"C:\Users\zzzly\Desktop\oop.txt", container.getSize().ToString() + "\n");
                 
@@ -47,7 +69,7 @@ namespace laba4
                     container[i].save();
                 }
             }
-            if (e.KeyCode == Keys.Enter) 
+            else if (e.KeyCode == Keys.Enter) 
             {
                 cgroup group = new cgroup();
                 int size = container.getSize();
@@ -68,22 +90,22 @@ namespace laba4
                 container.addObject(group);
                 pictureBox1.Invalidate();
             }
-            if (e.KeyCode == Keys.C)
+            else if (e.KeyCode == Keys.C)
             {
                 currentshape = 1;
                 label_shape.Text = "Текущая фигура - \nкруг";
             }
-            if (e.KeyCode == Keys.S)
+            else if (e.KeyCode == Keys.S)
             {
                 currentshape = 2;
                 label_shape.Text = "Текущая фигура - \nквадрат";
             }
-            if (e.KeyCode == Keys.T)
+            else if (e.KeyCode == Keys.T)
             {
                 currentshape = 3;
                 label_shape.Text = "Текущая фигура - \nтреугольник";
             }
-            if (e.KeyCode == Keys.G)
+            else if (e.KeyCode == Keys.G)
             {
                 currentcolor = Color.Green;
                 label_color.Text = "Текущий цвет - \nзелёный";
@@ -96,7 +118,7 @@ namespace laba4
                     }
                 }
             }
-            if (e.KeyCode == Keys.B)
+            else if (e.KeyCode == Keys.B)
             {
                 currentcolor = Color.Blue;
                 label_color.Text = "Текущий цвет - \nсиний";
@@ -109,7 +131,7 @@ namespace laba4
                 }
                 pictureBox1.Invalidate();
             }
-            if (e.KeyCode == Keys.Y)
+            else if (e.KeyCode == Keys.Y)
             {
                 currentcolor = Color.Yellow;
                 label_color.Text = "Текущий цвет - \nжёлтый";
@@ -122,7 +144,7 @@ namespace laba4
                 }
                 pictureBox1.Invalidate();
             }
-            if (e.KeyCode == Keys.Delete) 
+            else if (e.KeyCode == Keys.Delete) 
             {
                 int Size = container.getSize();
                 for (int i = 0; i < container.getSize(); i++)
@@ -137,8 +159,8 @@ namespace laba4
                 //Invalidate();
                 pictureBox1.Invalidate();
             }
-
-            if (e.KeyCode == Keys.Add)
+            
+            else if (e.KeyCode == Keys.Add)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -149,7 +171,7 @@ namespace laba4
                     }
                 }
             }
-            if (e.KeyCode == Keys.Subtract)
+            else if (e.KeyCode == Keys.Subtract)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -160,8 +182,8 @@ namespace laba4
                     }
                 }
             }
-
-            if (e.KeyCode == Keys.Up)
+            
+            else if (e.KeyCode == Keys.Up)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -172,7 +194,7 @@ namespace laba4
                     }
                 }
             }
-            if (e.KeyCode == Keys.Down)
+            else if (e.KeyCode == Keys.Down)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -183,7 +205,7 @@ namespace laba4
                     }
                 }
             }
-            if (e.KeyCode == Keys.Left)
+            else if (e.KeyCode == Keys.Left)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -194,7 +216,7 @@ namespace laba4
                     }
                 }
             }
-            if (e.KeyCode == Keys.Right)
+            else if (e.KeyCode == Keys.Right)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -272,15 +294,11 @@ namespace laba4
             {
                 if (container[i].getSelection() == false)
                 {
-                    SolidBrush bruh = new SolidBrush(container[i].getColor());
                     container[i].draw(g);
                 }
                 else
                 {
-                    SolidBrush bruh = new SolidBrush(container[i].getColor());
-                    //container[i].draw(g, bruh);
                     container[i].drawSelection(g);
-                    
                     container[i].draw(g);
                 }
             }

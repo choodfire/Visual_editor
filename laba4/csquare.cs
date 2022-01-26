@@ -17,6 +17,8 @@ namespace laba4
             this.size = side_length;
             this.color = color;
         }
+        public csquare()
+        { }
 
         public override void draw(Graphics g)
         {
@@ -34,7 +36,8 @@ namespace laba4
         public override void save()
         {
             string path = @"C:\Users\zzzly\Desktop\oop.txt";
-            string text = getClassname() + "\n" + point.X.ToString() + "\n" + point.Y.ToString() + "\n" + color.ToString() + "\n";
+            string text = getClassname() + "\n" + point.X.ToString() + "\n" + point.Y.ToString() + "\n" +
+                color.ToString() + "\n" + size;
 
             if (!File.Exists(path))
             {
@@ -51,6 +54,25 @@ namespace laba4
                     sw.WriteLine(text);
                 }
             }
+        }
+        public override void load(StreamReader s)
+        {
+            //string x = s.ReadLine();
+            //string y = s.ReadLine();
+            //string colorr = s.ReadLine();
+
+            this.point.X = Convert.ToInt32(s.ReadLine());
+            this.point.Y = Convert.ToInt32(s.ReadLine());
+            string colorr = s.ReadLine();
+            size = Convert.ToInt32(s.ReadLine());
+
+            if (colorr == "Color [Blue]")
+                color = Color.Blue;
+            if (colorr == "Color [Yellow]")
+                color = Color.Yellow;
+            if (colorr == "Color [Green]")
+                color = Color.Green;
+            
         }
     }
 }

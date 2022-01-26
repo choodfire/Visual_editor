@@ -38,6 +38,8 @@ namespace laba4
 
             pointsForSelection = new Point[3] { point1s, point2s, point3s };
         }
+        public ctriangle()
+        { }
 
         public override void draw(Graphics g)
         {
@@ -152,7 +154,8 @@ namespace laba4
         public override void save()
         {
             string path = @"C:\Users\zzzly\Desktop\oop.txt";
-            string text = getClassname() + "\n" + point.X.ToString() + "\n" + point.Y.ToString() + "\n" + color.ToString() + "\n";
+            string text = getClassname() + "\n" + point.X.ToString() + "\n" + point.Y.ToString() + "\n" +
+                color.ToString() + "\n" + size;
 
             if (!File.Exists(path))
             {
@@ -169,6 +172,37 @@ namespace laba4
                     sw.WriteLine(text);
                 }
             }
+        }
+        public override void load(StreamReader s)
+        {
+            //string x = s.ReadLine();
+            //string y = s.ReadLine();
+            //string colorr = s.ReadLine();
+
+            this.point.X = Convert.ToInt32(s.ReadLine());
+            this.point.Y = Convert.ToInt32(s.ReadLine());
+            string colorr = s.ReadLine();
+            //int sizee = Convert.ToInt32(s.ReadLine());
+            size = Convert.ToInt32(s.ReadLine());
+
+            if (colorr == "Color [Blue]")
+                color = Color.Blue;
+            if (colorr == "Color [Yellow]")
+                color = Color.Yellow;
+            if (colorr == "Color [Green]")
+                color = Color.Green;
+
+            this.point1 = new Point(point.X, point.Y - 30);
+            this.point2 = new Point(point.X + 30, point.Y + 30);
+            this.point3 = new Point(point.X - 30, point.Y + 30);
+
+            points = new Point[3] { point1, point2, point3 };
+
+            this.point1s = new Point(point.X, point.Y - 40);
+            this.point2s = new Point(point.X + 40, point.Y + 35);
+            this.point3s = new Point(point.X - 40, point.Y + 35);
+
+            pointsForSelection = new Point[3] { point1s, point2s, point3s };
         }
     }
 }
