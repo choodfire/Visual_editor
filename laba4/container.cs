@@ -33,7 +33,7 @@ namespace laba4
                 arr[index] = value;
             }
         }
-        public void addObject(Base obj) 
+        public void addObject(Base obj)
         {
             if (size == 0)
             {
@@ -41,10 +41,10 @@ namespace laba4
                 arr[0] = obj;
                 size = 1;
             }
-            else 
+            else
             {
                 Base[] new_arr = new Base[size + 1];
-                for (int i = 0; i < size; i++) 
+                for (int i = 0; i < size; i++)
                 {
                     new_arr[i] = arr[i];
                 }
@@ -53,7 +53,7 @@ namespace laba4
                 size += 1;
             }
         }
-        public void deleteObject(int index) 
+        public void deleteObject(int index)
         {
             Base[] new_arr = new Base[size - 1];
             for (int i = 0; i < index; i++)
