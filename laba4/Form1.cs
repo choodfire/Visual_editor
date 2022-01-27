@@ -41,7 +41,18 @@ namespace laba4
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.U) 
+            if (e.KeyCode == Keys.A) // select all
+            {
+                if (Control.ModifierKeys == Keys.Control) 
+                {
+                    for (int i = 0; i < container.getSize(); i++) 
+                    {
+                        container[i].setSelection(true);
+                    }
+                }
+                pictureBox1.Invalidate();
+            }
+            if (e.KeyCode == Keys.U) // ungroup
             {
                 int group_index = 0;
                 int curr_size = container.getSize();
@@ -62,39 +73,61 @@ namespace laba4
                     }
                 }
                 container.deleteObject(group_index);
-            }
-            if (e.KeyCode == Keys.P) 
-            {
-                string path = @"C:\Users\zzzly\Desktop\oop.txt";
-
-                StreamReader s = new StreamReader(path);
-                
-                int numberOfShapes = Convert.ToInt32(s.ReadLine());
-
-                var factory = new factory();
-                
-                for (int i = 0; i < numberOfShapes; i++)
+                for (int i = 0; i < container.getSize(); i++)
                 {
-                    Base shape;
-                    shape = factory.createShape(s.ReadLine());
-                    
-                    shape.load(s);
-
-                    container.addObject(shape);
+                    container[i].setSelection(false);
                 }
                 pictureBox1.Invalidate();
-
             }
-            else if (e.KeyCode == Keys.O)
+            if (e.KeyCode == Keys.P) // load
             {
-                File.WriteAllText(@"C:\Users\zzzly\Desktop\oop.txt", container.getSize().ToString() + "\n");
-                
-                for (int i = 0; i < container.getSize(); i++) 
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Text File | *.txt";
+                ofd.InitialDirectory = @"C:\Users\zzzly\Desktop";
+                if (ofd.ShowDialog() == DialogResult.OK) 
                 {
-                    container[i].save();
+                    string path = ofd.FileName;
+                    StreamReader s = new StreamReader(path);
+
+                    int numberOfShapes = Convert.ToInt32(s.ReadLine());
+
+                    var factory = new factory();
+
+                    for (int i = 0; i < numberOfShapes; i++)
+                    {
+                        Base shape;
+                        shape = factory.createShape(s.ReadLine());
+
+                        shape.load(s, factory);
+
+                        container.addObject(shape);
+                    }
+                    s.Close();
+                }
+                pictureBox1.Invalidate();
+            }
+            if (e.KeyCode == Keys.O) // save
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Text File | *.txt";
+                sfd.InitialDirectory = @"C:\Users\zzzly\Desktop";
+                if (sfd.ShowDialog() == DialogResult.OK) 
+                {
+                    string path = sfd.FileName;
+
+                    StreamWriter sw = new StreamWriter(path);
+
+                    sw.WriteLine(container.getSize().ToString());
+
+                    for (int i = 0; i < container.getSize(); i++)
+                    {
+                        container[i].save(sw);
+                    }
+                    sw.Close();
+                    Console.WriteLine("saved to " + path);
                 }
             }
-            else if (e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter) // group
             {
                 cgroup group = new cgroup();
                 int size = container.getSize();
@@ -115,22 +148,22 @@ namespace laba4
                 container.addObject(group);
                 pictureBox1.Invalidate();
             }
-            else if (e.KeyCode == Keys.C)
+            if (e.KeyCode == Keys.C)
             {
                 currentshape = 1;
                 label_shape.Text = "Текущая фигура - \nкруг";
             }
-            else if (e.KeyCode == Keys.S)
+            if (e.KeyCode == Keys.S)
             {
                 currentshape = 2;
                 label_shape.Text = "Текущая фигура - \nквадрат";
             }
-            else if (e.KeyCode == Keys.T)
+            if (e.KeyCode == Keys.T)
             {
                 currentshape = 3;
                 label_shape.Text = "Текущая фигура - \nтреугольник";
             }
-            else if (e.KeyCode == Keys.G)
+            if (e.KeyCode == Keys.G)
             {
                 currentcolor = Color.Green;
                 label_color.Text = "Текущий цвет - \nзелёный";
@@ -143,7 +176,7 @@ namespace laba4
                     }
                 }
             }
-            else if (e.KeyCode == Keys.B)
+            if (e.KeyCode == Keys.B)
             {
                 currentcolor = Color.Blue;
                 label_color.Text = "Текущий цвет - \nсиний";
@@ -156,7 +189,7 @@ namespace laba4
                 }
                 pictureBox1.Invalidate();
             }
-            else if (e.KeyCode == Keys.Y)
+            if (e.KeyCode == Keys.Y)
             {
                 currentcolor = Color.Yellow;
                 label_color.Text = "Текущий цвет - \nжёлтый";
@@ -169,7 +202,7 @@ namespace laba4
                 }
                 pictureBox1.Invalidate();
             }
-            else if (e.KeyCode == Keys.Delete) 
+            if (e.KeyCode == Keys.Delete) 
             {
                 int Size = container.getSize();
                 for (int i = 0; i < container.getSize(); i++)
@@ -185,7 +218,7 @@ namespace laba4
                 pictureBox1.Invalidate();
             }
             
-            else if (e.KeyCode == Keys.Add)
+            if (e.KeyCode == Keys.Add)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -196,7 +229,7 @@ namespace laba4
                     }
                 }
             }
-            else if (e.KeyCode == Keys.Subtract)
+            if (e.KeyCode == Keys.Subtract)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -208,7 +241,7 @@ namespace laba4
                 }
             }
             
-            else if (e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Up)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -219,7 +252,7 @@ namespace laba4
                     }
                 }
             }
-            else if (e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.Down)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -230,7 +263,7 @@ namespace laba4
                     }
                 }
             }
-            else if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.Left)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {
@@ -241,7 +274,7 @@ namespace laba4
                     }
                 }
             }
-            else if (e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.Right)
             {
                 for (int i = 0; i < container.getSize(); i++)
                 {

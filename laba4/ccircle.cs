@@ -41,30 +41,19 @@ namespace laba4
         {
             return "Circle";
         }
-        public override void save() 
+        public override void save(StreamWriter sw) 
         {
-            string path = @"C:\Users\zzzly\Desktop\oop.txt";
-            string text = getClassname() + "\n" + point.X.ToString() + "\n" + point.Y.ToString() + "\n" + 
-                color.ToString() + "\n" + size;
-            
-            
-            if (!File.Exists(path))
-            {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(text);
-                }
-            }
-            else 
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(text);
-                }
-            }
+            //string path = @"C:\Users\zzzly\Desktop\oop.txt";
+            //string text = getClassname() + "\n" + point.X.ToString() + "\n" + point.Y.ToString() + "\n" + 
+            //color.ToString() + "\n" + size;
+
+            sw.WriteLine(getClassname());
+            sw.WriteLine(point.X.ToString());
+            sw.WriteLine(point.Y.ToString());
+            sw.WriteLine(color.ToString());
+            sw.WriteLine(size);
         }
-        public override void load(StreamReader s)
+        public override void load(StreamReader s, factory f)
         {
             //string x = s.ReadLine();
             //string y = s.ReadLine();

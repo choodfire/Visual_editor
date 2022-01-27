@@ -107,8 +107,8 @@ namespace laba4
 
         public virtual void draw(Graphics g) { }
 
-        public virtual void save() { }
-        public virtual void load(StreamReader stream) { }
+        public virtual void save(StreamWriter sw) { }
+        public virtual void load(StreamReader stream, factory f) { }
         public virtual string getClassname() 
         {
             return "Base";

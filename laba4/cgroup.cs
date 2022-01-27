@@ -151,42 +151,28 @@ namespace laba4
         {
             return "Group";
         }
-        public override void save()
+        public override void save(StreamWriter sw)
         {
-            string path = @"C:\Users\zzzly\Desktop\oop.txt";
-            string text = getClassname() + "\n" + size.ToString();
+            //string path = @"C:\Users\zzzly\Desktop\oop.txt";
+            //string text = getClassname() + "\n" + size.ToString();
+            sw.WriteLine(getClassname());
+            sw.WriteLine(size.ToString());
 
-            if (!File.Exists(path))
-            {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(text);
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(text);
-                }
-            }
             for (int i = 0; i < size; i++)
             {
-                arr[i].save();
+                arr[i].save(sw);
             }
         }
-        public override void load(StreamReader s) 
+        public override void load(StreamReader s, factory f)
         {
             int numberOfShapes = Convert.ToInt32(s.ReadLine());
-            var factory = new factory();
-
+            
             for (int i = 0; i < numberOfShapes; i++) 
             {
                 Base shape;
-                shape = factory.createShape(s.ReadLine());
+                shape = f.createShape(s.ReadLine());
 
-                shape.load(s);
+                shape.load(s, f);
 
                 addToGroup(shape);
             }

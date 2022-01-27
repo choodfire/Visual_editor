@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace laba4
 {
-    class factory: Base
+    class factory
     {
         public Base createShape(string shape) 
         {
