@@ -1,14 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Хранилище">
+    <Position X="2.528" Y="1.783" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Круг (конкретная фигура)">
+    <Position X="2.457" Y="9.731" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Квадрат (конкретная фигура)">
+    <Position X="6.923" Y="9.605" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Группа">
+    <Position X="6.425" Y="11.26" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Треугольник (конкретная фигура)">
+    <Position X="10.912" Y="11.182" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Конкретная фабрика">
+    <Position X="10.25" Y="4.25" Height="0.75" Width="1.218" />
+  </Comment>
+  <Comment CommentText="Интерфейс для фабрик">
+    <Position X="10.252" Y="2.461" Height="0.75" Width="1.3" />
+  </Comment>
+  <Comment CommentText="Базовый класс">
+    <Position X="6.912" Y="1.62" Height="0.75" Width="1.011" />
+  </Comment>
   <Class Name="laba4.Base">
-    <Position X="7" Y="1.5" Width="1.5" />
+    <Position X="5.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACQAICAAATAAIIAAAAkAAAAAACAAQAAhAAIQCE=</HashCode>
       <FileName>Base.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="laba4.Container&lt;Base&gt;">
-    <Position X="2.5" Y="3" Width="2" />
+    <Position X="2.5" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAIAAAAAACIAEAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>container.cs</FileName>
@@ -43,10 +67,31 @@
     </TypeIdentifier>
   </Class>
   <Class Name="laba4.factory">
-    <Position X="11.5" Y="7.25" Width="1.5" />
+    <Position X="8.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>factory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="laba4.AbstractFactory">
+    <Position X="8.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="laba4.Program">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="laba4.Form1" Collapsed="true">
+    <Position X="12.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQEgDEAAJAAAACCAABCABIIgAAAAAAAAABAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

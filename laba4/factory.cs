@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace laba4
 {
-    class factory
+    public class factory: AbstractFactory
     {
-        public Base createShape(string shape) 
+        public override Base createShape(string shape) 
         {
             if (shape == "Circle")
                 return new ccircle();

@@ -8,7 +8,7 @@ using System.IO;
 
 namespace laba4
 {
-    class Base
+    public class Base
     {
         protected int size; // радиус в круге, сторона в квадрате
         protected Point point;
