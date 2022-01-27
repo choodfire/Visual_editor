@@ -53,8 +53,7 @@ namespace laba4
 
         public override void move(int xOffset, int yOffset, int canvas_width, int canvas_height)
         {
-            if (point.X + xOffset + size < canvas_width && point.X + xOffset - size > 0 &&
-                point.Y + yOffset + size < canvas_height && point.Y + yOffset - size > 0)
+            if (canItMove(xOffset, yOffset, canvas_width, canvas_height) == true)
             {
                 point.X += xOffset;
                 point.Y += yOffset;
@@ -77,10 +76,10 @@ namespace laba4
                 pointsForSelection = new Point[3] { point1s, point2s, point3s };
             }
         }
-        public override bool canItMove(int xOffset, int yOffset)
+        public override bool canItMove(int xOffset, int yOffset, int canvas_width, int canvas_height)
         {
-            if (point.X + xOffset + size < 800 && point.X + xOffset - size > 0 &&
-                point.Y + yOffset + size < 600 && point.Y + yOffset - size > 0)
+            if (point.X + xOffset + size < canvas_width && point.X + xOffset - size > 0 &&
+                point.Y + yOffset + size < canvas_height && point.Y + yOffset - size > 0)
             {
                 return true;
             }
@@ -88,10 +87,9 @@ namespace laba4
         }
         public override void resize(bool sign) // тут надо и points i pointsforsel
         {
-            if (sign == true)
+            if (CanItResize(sign) == true) 
             {
-                if (point.X - size - 10 > 0 && point.X + size + 10 < 800 &&
-                    point.Y - size - 10 > 0 && point.Y + size + 10 < 600)
+                if (sign == true)
                 {
                     size = Convert.ToInt32(size + 10);
 
@@ -110,28 +108,28 @@ namespace laba4
                     points = new Point[3] { point1, point2, point3 };
                     pointsForSelection = new Point[3] { point1s, point2s, point3s };
                 }
-            }
-            else if (size > 40)
-            {
-                size = Convert.ToInt32(size - 10);
+                else
+                {
+                    size = Convert.ToInt32(size - 10);
 
-                point1.Y = point1.Y + 10;
-                point2.X = point2.X - 10;
-                point2.Y = point2.Y - 10;
-                point3.X = point3.X + 10;
-                point3.Y = point3.Y - 10;
+                    point1.Y = point1.Y + 10;
+                    point2.X = point2.X - 10;
+                    point2.Y = point2.Y - 10;
+                    point3.X = point3.X + 10;
+                    point3.Y = point3.Y - 10;
 
-                point1s.Y += 10;
-                point2s.X -= 10;
-                point2s.Y -= 10;
-                point3s.X += 10;
-                point3s.Y -= 10;
+                    point1s.Y += 10;
+                    point2s.X -= 10;
+                    point2s.Y -= 10;
+                    point3s.X += 10;
+                    point3s.Y -= 10;
 
-                points = new Point[3] { point1, point2, point3 };
-                pointsForSelection = new Point[3] { point1s, point2s, point3s };
+                    points = new Point[3] { point1, point2, point3 };
+                    pointsForSelection = new Point[3] { point1s, point2s, point3s };
+                }
             }
         }
-        public virtual bool CanItResize(bool sign)
+        public override bool CanItResize(bool sign)
         {
             if (sign == true)
             {

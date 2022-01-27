@@ -72,6 +72,5 @@ namespace laba4
                 color = Color.Green;
         }
 
-    
     }
 }

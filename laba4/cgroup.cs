@@ -94,7 +94,7 @@ namespace laba4
             bool can = true;
             for (int i = 0; i < size; i++)
             {
-                can = can && arr[i].canItMove(xOffset, yOffset);
+                can = can && arr[i].canItMove(xOffset, yOffset, canvas_width, canvas_height);
             }
             if (can == true) 
             {
@@ -103,25 +103,19 @@ namespace laba4
                     arr[i].move(xOffset, yOffset, canvas_width, canvas_height);
                 }
             }
-
         }
-        public override bool canItMove(int xOffset, int yOffset)
+        public override bool canItMove(int xOffset, int yOffset, int canvas_width, int canvas_height)
         {
             bool can = true;
             for (int i = 0; i < size; i++)
             {
-                can = can && arr[i].canItMove(xOffset, yOffset);
+                can = can && arr[i].canItMove(xOffset, yOffset, canvas_width, canvas_height);
             }
             return can;
         }
         public override void resize(bool sign)
         {
-            bool can = true;
-            for (int i = 0; i < size; i++)
-            {
-                can = can && arr[i].CanItResize(sign);
-            }
-            if (can == true)
+            if (CanItResize(sign) == true) 
             {
                 for (int i = 0; i < size; i++)
                 {
