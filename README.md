@@ -8,7 +8,7 @@
 
 ### Использование
 
-Для использования скачать через <code>git clone github.com/choodfire/Visual_editor</code> и запустить в любом редакторе кода
+Для использования скачать через <code>git clone github.com/choodfire/Visual_editor</code> или [отсюда](https://github.com/choodfire/Visual_editor/releases) и запустить в любом редакторе кода
 
 ---
 
