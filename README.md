@@ -1,6 +1,6 @@
 # Visual editor
 
-Простой графический редактор, созданный на курсе ООП.
+Простой графический редактор, созданный в ходе лабораторных работ по дисциплине "Объектно-ориентированное программирование".
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
